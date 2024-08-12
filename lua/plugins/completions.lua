@@ -4,17 +4,26 @@ return {
   },
   {
     "L3MON4D3/LuaSnip",
-    dependencies = {
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
-    },
+    tag = "v2.*",
+    build = "make install_jsregexp",
+    config = function()
+      local luasnip = require("luasnip")
+      luasnip.setup({
+        sources = {
+          require("luasnip.loaders.from_vscode").load(),
+        },
+      })
+
+      vim.keymap.set({"i"}, "<C-K>", function() luasnip.expand() end, {silent = true})
+      vim.keymap.set({"i", "s"}, "<C-L>", function() luasnip.jump( 1) end, {silent = true})
+      vim.keymap.set({"i", "s"}, "<C-J>", function() luasnip.jump(-1) end, {silent = true})
+    end,
   },
   {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/nvim-cmp",
     config = function()
       local cmp = require("cmp")
-      require("luasnip.loaders.from_vscode").lazy_load()
       cmp.setup({
         sources = {
           { name = "nvim_lsp" },
