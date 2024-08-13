@@ -9,7 +9,9 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set clipboard=unnamedplus")
-vim.cmd("set foldmethod=indent")
+-- vim.cmd("set foldmethod=indent")
+vim.cmd("set foldmethod=expr")
+vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
 vim.cmd("set foldlevel=99")
 --Keymaps
 -- Mapeo para guardar con Ctrl + S en modo normal y de inserción
