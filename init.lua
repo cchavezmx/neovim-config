@@ -5,6 +5,8 @@
 -- videos para ver
 -- https://www.youtube.com/watch?v=_6OqJrdbfs0
 -- https://www.youtube.com/watch?v=n5_WLgxwkU8--
+--https://neovim.discourse.group/t/delete-all-but-current-buffer/3953
+--https://www.youtube.com/watch?v=5wy2iLU5fs0
 --
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
