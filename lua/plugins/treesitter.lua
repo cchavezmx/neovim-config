@@ -8,6 +8,7 @@ return {
 				"c",
 				"lua",
 				"python",
+        "typescript",
 				"javascript",
 				"astro",
 				"bash",

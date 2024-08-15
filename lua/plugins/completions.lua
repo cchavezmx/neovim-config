@@ -64,8 +64,8 @@ return {
 			-- See Configuration section for rest
 		},
 		-- See Commands section for default commands if you want to lazy load on them
-		vim.keymap.set("n", "<leader>ccq", function()
-			local input = vim.fn.input("Preguntame mi chavo!!!!: ")
+		vim.keymap.set("n", "<leader>CC", function()
+			local input = vim.fn.input("Pregunta: ")
 			if input ~= "" then
 				require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
 			end

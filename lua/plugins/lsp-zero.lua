@@ -3,7 +3,15 @@ return {
 		"williamboman/mason.nvim",
 		lazy = false,
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+				ensure_installed = {
+					"lua",
+					"typescript",
+					"gopls",
+					"rust",
+					"delve",
+				},
+			})
 		end,
 	},
 	{
@@ -21,11 +29,11 @@ return {
 		branch = "v4.x",
 		config = function()
 			local lsp_zero = require("lsp-zero")
-      vim.opt.updatetime = 500
+			vim.opt.updatetime = 500
 
 			local lsp_attch = function(client, bufnr)
 				local opts = { buffer = bufnr }
-        lsp_zero.highlight_symbol(client, bufnr)
+				lsp_zero.highlight_symbol(client, bufnr)
 
 				vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 				vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
@@ -50,6 +58,9 @@ return {
 			lspconfig.gopls.setup({})
 			lspconfig.rust_analyzer.setup({})
 			lspconfig.lua_ls.setup({})
+			lspconfig.eslint.setup({})
+			lspconfig.jsonls.setup({})
+			lspconfig.html.setup({})
 		end,
 	},
 }
