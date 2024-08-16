@@ -21,6 +21,7 @@ return {
 				"html",
 				"vue",
 				"yaml",
+        "pug",
 			},
 			sync_install = false,
 			auto_install = true,
