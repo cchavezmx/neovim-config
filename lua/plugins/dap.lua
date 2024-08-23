@@ -1,51 +1,40 @@
 return {
-  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
-  {
-    "mfussenegger/nvim-dap",
-    lazy = true,
-    dependencies = {
-      "jay-babu/mason-nvim-dap.nvim",
-      config = function()
-        require("mason-nvim-dap").setup({ ensure_installed = { "firefox", "node2" } })
-      end,
-      "theHamsta/nvim-dap-virtual-text",
-      "rcarriga/nvim-dap-ui",
-      "anuvyklack/hydra.nvim",
-      "nvim-telescope/telescope-dap.nvim",
-      "rcarriga/cmp-dap",
-    },
-    keys = {
-      { "<leader>d", desc = "Open Debug menu" },
-    },
-    cmd = {
-      "DapContinue",
-      "DapLoadLaunchJSON",
-      "DapRestartFrame",
-      "DapSetLogLevel",
-      "DapShowLog",
-      "DapStepInto",
-      "DapStepOut",
-      "DapStepOver",
-      "DapTerminate",
-      "DapToggleBreakpoint",
-      "DapToggleRepl",
-    },
-    config = function()
-      local ok_telescope, telescope = pcall(require, "telescope")
-      if ok_telescope then
-        telescope.load_extension("dap")
-      end
+	"mfussenegger/nvim-dap",
+	dependencies = {
+		"rcarriga/nvim-dap-ui",
+		"nvim-neotest/nvim-nio",
+		"rcarriga/nvim-dap-ui",
+    "leoluz/nvim-dap-go",
+	},
+	config = function()
+		local dap = require("dap")
+		local dapui = require("dapui")
+		local dapgo = require("dap-go")
 
-      local ok_cmp, cmp = pcall(require, "cmp")
-      if ok_cmp then
-        cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
-          sources = cmp.config.sources({
-            { name = "dap" },
-          }, {
-            { name = "buffer" },
-          }),
-        })
-      end
-    end,
-  },
+		dap.listeners.before.attach.dapui_config = function()
+			dapui.open()
+		end
+		dap.listeners.before.launch.dapui_config = function()
+			dapui.open()
+		end
+		dap.listeners.before.event_terminated.dapui_config = function()
+			dapui.close()
+		end
+		dap.listeners.before.event_exited.dapui_config = function()
+			dapui.close()
+		end
+
+		vim.keymap.set("n", "<F5>", dap.continue, {})
+		vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint, {})
+
+		dapgo.setup({
+      dap_configurations = {
+        type = "go",
+        name = "Attach remote",
+        mode = "remote",
+        request = "attach",
+      }
+    })
+    dapui.setup()
+	end,
 }
