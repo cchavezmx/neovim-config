@@ -9,11 +9,12 @@
 --   end
 -- }
 return {
-  -- "nyngwang/nvimgelion",
-  "catppuccin/nvim",
+  "nyngwang/nvimgelion",
+  -- "catppuccin/nvim",
   config = function()
-    require("catppuccin").setup()
-    vim.cmd.colorscheme("catppuccin")
+    -- require("nvimgelion").setup()
+    -- require("catppuccin.palettes").get_palette("mocha")
+    vim.cmd.colorscheme("nvimgelion")
     vim.api.nvim_create_autocmd({ "ColorScheme", "FileType" }, {
       callback = function()
         vim.cmd([[
