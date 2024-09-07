@@ -31,6 +31,7 @@ return {
 			local lsp_zero = require("lsp-zero")
 			vim.opt.updatetime = 500
 
+      -- TODO: This is a temporary fix for the issue with the lsp-zero plugin
 			local lsp_attch = function(client, bufnr)
 				local opts = { buffer = bufnr }
 				lsp_zero.highlight_symbol(client, bufnr)
