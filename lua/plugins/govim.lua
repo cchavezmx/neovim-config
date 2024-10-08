@@ -107,9 +107,9 @@ return {
                            -- float term recommend if you use gotestsum ginkgo with terminal color
 
   floaterm = {   -- position
-    posititon = 'auto', -- one of {`top`, `bottom`, `left`, `right`, `center`, `auto`}
-    width = 0.25, -- width of float window if not auto
-    height = 0.48, -- height of float window if not auto
+    posititon = 'bottom', -- one of {`top`, `bottom`, `left`, `right`, `center`, `auto`}
+    width = 0.2, -- width of float window if not auto
+    height = 0.1, -- height of float window if not auto
     title_colors = 'nord', -- default to nord, one of {'nord', 'tokyo', 'dracula', 'rainbow', 'solarized ', 'monokai'}
                               -- can also set to a list of colors to define colors to choose from
                               -- e.g {'#D8DEE9', '#5E81AC', '#88C0D0', '#EBCB8B', '#A3BE8C', '#B48EAD'}
