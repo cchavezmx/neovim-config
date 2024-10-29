@@ -7,9 +7,11 @@ return {
 				ensure_installed = {
 					"lua",
 					"typescript",
+          "ts_ls",
 					"gopls",
 					"rust",
 					"delve",
+          "buf-language-server",
 				},
 			})
 		end,
@@ -55,7 +57,8 @@ return {
 			})
 
 			local lspconfig = require("lspconfig")
-			lspconfig.tsserver.setup({})
+			-- lspconfig.tsserver.setup({})
+      lspconfig.ts_ls.setup({})
 			lspconfig.gopls.setup({})
 			lspconfig.rust_analyzer.setup({})
 			lspconfig.lua_ls.setup({})
