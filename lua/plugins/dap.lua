@@ -11,33 +11,27 @@ return {
     local dapui = require("dapui")
     local dapgo = require("dap-go")
 
+    dapui.setup()
+    dapgo.setup()
     dap.listeners.before.attach.dapui_config = function()
       dapui.open()
     end
     dap.listeners.before.launch.dapui_config = function()
       dapui.open()
     end
+
+    -- Include the next few lines until the comment only if you feel you need it
     dap.listeners.before.event_terminated.dapui_config = function()
       dapui.close()
     end
     dap.listeners.before.event_exited.dapui_config = function()
       dapui.close()
     end
-
-    vim.keymap.set("n", "<F5>", dap.continue, {})
-    vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint, {})
-
-    dapgo.setup({
-      dap_configurations = {
-        type = "go",
-        name = "Debug",
-        request = "launch",
-        program = "${file}",
-      },
-    })
-    dapui.setup()
-
-    require('dap.ext.vscode').load_launchjs(nil, {})
-    vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+    -- Include everything after this
+    vim.api.nvim_set_keymap("n", "<leader>dt", ":DapUiToggle<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>db", ":DapToggleBreakpoint<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>dc", ":DapContinue<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dap').open({ restart = true })<CR>", { noremap = true, silent = true })
+    vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DiagnosticError", linehl = "", numhl = "" })
   end,
 }

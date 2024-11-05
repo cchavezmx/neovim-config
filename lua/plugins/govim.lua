@@ -103,14 +103,14 @@ return {
 			textobjects = true, -- enable default text objects through treesittter-text-objects
 			test_runner = "go", -- one of {`go`,  `dlv`, `ginkgo`, `gotestsum`}
 			verbose_tests = true, -- set to add verbose flag to tests deprecated, see '-v' option
-			run_in_floaterm = true, -- set to true to run in a float window. :GoTermClose closes the floatterm
+			run_in_floaterm = false, -- set to true to run in a float window. :GoTermClose closes the floatterm
 			-- float term recommend if you use gotestsum ginkgo with terminal color
       -- if you use go or dlv, you can set to false to run in a normal terminal
 
 			floaterm = { -- position
-				posititon = "bottom", -- one of {`top`, `bottom`, `left`, `right`, `center`, `auto`}
-				width = 0.45, -- width of float window if not auto
-				height = 0.098, -- height of float window if not auto
+				posititon = "right", -- one of {`top`, `bottom`, `left`, `right`, `center`, `auto`}
+				width = 0.50, -- width of float window if not auto
+				height = 0.1, -- height of float window if not auto
 				title_colors = "nord", -- default to nord, one of {'nord', 'tokyo', 'dracula', 'rainbow', 'solarized ', 'monokai'}
 				-- can also set to a list of colors to define colors to choose from
 				-- e.g {'#D8DEE9', '#5E81AC', '#88C0D0', '#EBCB8B', '#A3BE8C', '#B48EAD'}
