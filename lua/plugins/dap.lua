@@ -33,5 +33,13 @@ return {
     vim.api.nvim_set_keymap("n", "<leader>dc", ":DapContinue<CR>", { noremap = true, silent = true })
     vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dap').open({ restart = true })<CR>", { noremap = true, silent = true })
     vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DiagnosticError", linehl = "", numhl = "" })
+    dap.configurations.go = {
+      {
+        type = "go",
+        name = "Debug",
+        request = "launch",
+        program = "${workspaceFolder}/cmd/service/main.go",
+      },
+    }
   end,
 }

@@ -57,9 +57,29 @@ return {
 			})
 
 			local lspconfig = require("lspconfig")
-			-- lspconfig.tsserver.setup({})
       lspconfig.ts_ls.setup({})
-			lspconfig.gopls.setup({})
+			lspconfig.gopls.setup({
+        cmd = { "gopls", "-remote=auto" },
+        settings = {
+          gopls = {
+            staticcheck = true,
+            matcher = "fuzzy",
+            usePlaceholders = true,
+            completeUnimported = true,
+            analyses = {
+              unusedparams = true,
+              shadow = true,
+              nilness = true,
+              fieldalignment = true,
+            },
+            gofumpt = true,
+          },
+        },
+        on_attach = lsp_attch,
+        flags = {
+          debounce_text_changes = 150,
+        },
+      })
 			lspconfig.rust_analyzer.setup({})
 			lspconfig.lua_ls.setup({})
 			lspconfig.eslint.setup({})
