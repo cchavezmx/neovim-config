@@ -20,6 +20,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+vim.opt.termguicolors = true
+vim.api.nvim_set_keymap("i", "<C-b>", "`", { noremap = true, silent = true })
 
 local opts = {}
 require("lazy").setup("plugins", opts)
