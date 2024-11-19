@@ -17,6 +17,8 @@ vim.cmd("set foldlevel=99")
 -- Mapeo para guardar con Ctrl + S en modo normal y de inserción
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.go",
