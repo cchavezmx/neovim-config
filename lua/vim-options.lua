@@ -13,12 +13,25 @@ vim.cmd("set clipboard=unnamedplus")
 vim.cmd("set foldmethod=expr")
 vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
 vim.cmd("set foldlevel=99")
+vim.cmd([[autocmd FileType json nnoremap <buffer> <leader>j :%!jq .<CR>]])
 --Keymaps
 -- Mapeo para guardar con Ctrl + S en modo normal y de inserción
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  "n",
+  "<CR>",
+  "<cmd>lua require('kulala').run()<CR>",
+  { noremap = true, silent = true, desc = "Execute the request" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>co",
+  "<cmd>lua require('kulala').copy()<cr>",
+  { noremap = true, silent = true, desc = "Copy the current request as a curl command" }
+)
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.go",
@@ -42,4 +55,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		vim.lsp.buf.format({ async = false })
 	end,
 })
-

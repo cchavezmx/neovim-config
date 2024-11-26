@@ -10,6 +10,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
 			"nvim-tree/nvim-web-devicons",
+      "nvim-telescope/telescope-fzf-native.nvim",
 		},
 		config = function()
 			require("telescope").setup({
@@ -27,6 +28,6 @@ return {
 			vim.keymap.set("n", "<leader>rg", ":Telescope registers<CR>", {})
 			vim.keymap.set("n", "<leader>fp", ":Telescope git_files<CR>", {})
 			require("telescope").load_extension("ui-select")
-		end,
-	},
+    end,
+  }
 }
