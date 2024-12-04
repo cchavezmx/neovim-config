@@ -9,6 +9,9 @@ return {
         null_ls.builtins.diagnostics.erb_lint,
         null_ls.builtins.diagnostics.rubocop,
         null_ls.builtins.formatting.rubocop,
+        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.formatting.goimports,
+        null_ls.builtins.formatting.gofmt,
       },
     })
 

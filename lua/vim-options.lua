@@ -22,7 +22,7 @@ vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent =
 vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
   "n",
-  "<CR>",
+  "<leadr>k",
   "<cmd>lua require('kulala').run()<CR>",
   { noremap = true, silent = true, desc = "Execute the request" }
 )
@@ -32,6 +32,7 @@ vim.api.nvim_set_keymap(
   "<cmd>lua require('kulala').copy()<cr>",
   { noremap = true, silent = true, desc = "Copy the current request as a curl command" }
 )
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.go",
