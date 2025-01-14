@@ -32,7 +32,8 @@ vim.api.nvim_set_keymap(
   "<cmd>lua require('kulala').copy()<cr>",
   { noremap = true, silent = true, desc = "Copy the current request as a curl command" }
 )
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+
+-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.go",

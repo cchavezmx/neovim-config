@@ -8,6 +8,9 @@ return {
   config = function()
     local noice = require("noice")
     noice.setup({
+      messages = {
+        view_error = "notify"
+      },
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {

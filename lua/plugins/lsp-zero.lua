@@ -12,6 +12,13 @@ return {
           "rust",
           "delve",
           "buf-language-server",
+          "pylsp",
+          "tailwindcss",
+          "html",
+          "ast_grep",
+          "graphql",
+          "prettier",
+          "prettierd",
         },
       })
     end,
@@ -85,6 +92,12 @@ return {
       lspconfig.eslint.setup({})
       lspconfig.jsonls.setup({})
       lspconfig.html.setup({})
+      lspconfig.cssls.setup({})
+      lspconfig.pylsp.setup({})
+      lspconfig.tailwindcss.setup({})
+      lspconfig.ast_grep.setup({})
+      lspconfig.protols.setup({})
+      lspconfig.graphql.setup({})
     end,
   },
 }

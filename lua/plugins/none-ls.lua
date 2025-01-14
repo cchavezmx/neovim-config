@@ -4,6 +4,21 @@ return {
     local null_ls = require("null-ls")
     null_ls.setup({
       sources = {
+        null_ls.builtins.formatting.prettier.with({
+          extra_args = { "--plugin=graphql-prettier" },
+          filetypes = {
+            "javascript",
+            "typescript",
+            "javascriptreact",
+            "typescriptreact",
+            "css",
+            "scss",
+            "json",
+            "yaml",
+            "markdown",
+            "graphql",
+          },
+        }),
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.erb_lint,
