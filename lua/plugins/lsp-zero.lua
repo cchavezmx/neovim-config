@@ -19,6 +19,7 @@ return {
           "graphql",
           "prettier",
           "prettierd",
+          "yamlfix",
         },
       })
     end,
@@ -98,6 +99,7 @@ return {
       lspconfig.ast_grep.setup({})
       lspconfig.protols.setup({})
       lspconfig.graphql.setup({})
+      lspconfig.yamlls.setup({})
     end,
   },
 }

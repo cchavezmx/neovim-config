@@ -26,7 +26,7 @@ return {
 			},
 			sync_install = false,
 			auto_install = true,
-			highlight = { enable = true, disable = { "markdown_inline" } },
+			-- highlight = { enable = true, disable = { "markdown_inline" } },
 			indent = { enable = true },
 			fold = { enable = true },
 		})
