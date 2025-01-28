@@ -5,16 +5,7 @@ return {
 	version = false, -- set this if you want to always pull the latest change
 	opts = {
 		---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-		provider = "ollama",
-		vendors = {
-			ollama = {
-				__inherited_from = "openai",
-				api_key_name = "",
-				endpoint = "http://127.0.0.1:11434/v1",
-				model = "avante",
-        temperature = 0.5,
-			},
-		},
+		provider = "copilot", -- The provider to use for auto-suggestions
 		auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
 		behaviour = {
 			auto_suggestions = false, -- Experimental stage
