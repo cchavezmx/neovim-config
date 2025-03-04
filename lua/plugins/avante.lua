@@ -5,7 +5,17 @@ return {
 	version = false, -- set this if you want to always pull the latest change
 	opts = {
 		---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
+		-- provider = "copilot", -- The provider to use for auto-suggestions
 		provider = "copilot", -- The provider to use for auto-suggestions
+		-- openai = {
+		-- 	endpoint = "https://api.deepseek.com/v1",
+		-- 	model = "deepseek-chat",
+		-- 	timeout = 30000, -- Timeout in milliseconds
+		-- 	temperature = 0,
+		-- 	max_tokens = 4096,
+		-- 	-- optional
+		-- 	api_key_name = "OPENAI_API_KEY", -- default OPENAI_API_KEY if not set
+		-- },
 		auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
 		behaviour = {
 			auto_suggestions = false, -- Experimental stage
@@ -13,6 +23,13 @@ return {
 			auto_set_keymaps = true,
 			auto_apply_diff_after_generation = false,
 			support_paste_from_clipboard = false,
+		},
+		dual_boost = {
+			enabled = false,
+			first_provider = "copilot",
+			second_provider = "openai",
+			prompt = "Based on the two reference outputs below, generate a response that incorporates elements from both but reflects your own judgment and unique perspective. Do not provide any explanation, just give the response directly. Reference Output 1: [{{provider1_output}}], Reference Output 2: [{{provider2_output}}]",
+			timeout = 60000, -- Timeout in milliseconds
 		},
 		mappings = {
 			--- @class AvanteConflictMappings

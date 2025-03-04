@@ -34,23 +34,35 @@ return {
 		vim.api.nvim_set_keymap(
 			"n",
 			"<leader>dr",
-      ":lua require('dap').repl.open()<CR>",
+			":lua require('dap').open({ restart = true })<CR>",
 			{ noremap = true, silent = true }
 		)
 		vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DiagnosticError", linehl = "", numhl = "" })
 		dap.configurations.go = {
 			{
 				type = "go",
-				name = "Debug service/main.go",
+				name = "Debug Station Server gRPC",
 				request = "launch",
-				program = "${workspaceFolder}/cmd/service/main.go",
+				program = "${workspaceFolder}/cmd/grpcserver/main.go",
+				mode = "debug",
+				outputMode = "remote",
 			},
 			{
 				type = "go",
-				name = "Debug cmd/main.go",
+				name = "Debug CMD/main.go",
 				request = "launch",
 				program = "${workspaceFolder}/cmd/main.go",
+				mode = "debug",
+				outputMode = "remote",
 			},
+      {
+				type = "go",
+				name = "Debug CMD/Service/main.go",
+				request = "launch",
+				program = "${workspaceFolder}/cmd/service/main.go",
+				mode = "debug",
+				outputMode = "remote",
+			}
 		}
 	end,
 }
