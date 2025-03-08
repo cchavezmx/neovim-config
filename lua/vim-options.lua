@@ -33,6 +33,12 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true, desc = "Copy the current request as a curl command" }
 )
 
+local get_option = vim.filetype.get_option
+vim.filetype.get_option = function(filetype, option)
+  return option == "commentstring" and require("ts_context_commentstring").calculate_commentstring()
+      or get_option(filetype, option)
+end
+
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()
