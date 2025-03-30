@@ -55,14 +55,22 @@ return {
 				mode = "debug",
 				outputMode = "remote",
 			},
-      {
+			{
 				type = "go",
 				name = "Debug CMD/Service/main.go",
 				request = "launch",
 				program = "${workspaceFolder}/cmd/service/main.go",
 				mode = "debug",
 				outputMode = "remote",
-			}
+			},
+			{
+				type = "go",
+				name = "Debug CMD/server/main.go",
+				request = "launch",
+				program = "${workspaceFolder}/cmd/server/main.go",
+				mode = "debug",
+				outputMode = "remote",
+			},
 		}
 	end,
 }
