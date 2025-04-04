@@ -5,7 +5,7 @@ return {
 	opts = {
 		-- add any opts here
 		-- for example
-		provider = "openai",
+		provider = "claude", -- or "claude" or "gpt4all"
 		openai = {
 			endpoint = "https://api.openai.com/v1",
 			model = "gpt-3.5-turbo-0125", -- your desired model (or use gpt-4o, etc.)
