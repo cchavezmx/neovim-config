@@ -6,6 +6,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 	},
 	config = function()
+    require("go_runner").setup()
 		require("go").setup({
 
 			disable_defaults = false, -- true|false when true set false to all boolean settings and replace all tables
