@@ -41,9 +41,17 @@ return {
 		dap.configurations.go = {
 			{
 				type = "go",
-				name = "Debug Station Server gRPC",
+				name = "Debug grpcserver/main.go",
 				request = "launch",
 				program = "${workspaceFolder}/cmd/grpcserver/main.go",
+				mode = "debug",
+				outputMode = "remote",
+			},
+      {
+				type = "go",
+				name = "Debug wms",
+				request = "launch",
+				program = "${workspaceFolder}/cmd/induction-xxs/",
 				mode = "debug",
 				outputMode = "remote",
 			},
