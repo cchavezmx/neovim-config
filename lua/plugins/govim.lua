@@ -6,7 +6,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 	},
 	config = function()
-    require("go_runner").setup()
+		require("go_runner").setup()
 		require("go").setup({
 
 			disable_defaults = false, -- true|false when true set false to all boolean settings and replace all tables
@@ -106,7 +106,7 @@ return {
 			verbose_tests = true, -- set to add verbose flag to tests deprecated, see '-v' option
 			run_in_floaterm = false, -- set to true to run in a float window. :GoTermClose closes the floatterm
 			-- float term recommend if you use gotestsum ginkgo with terminal color
-      -- if you use go or dlv, you can set to false to run in a normal terminal
+			-- if you use go or dlv, you can set to false to run in a normal terminal
 
 			floaterm = { -- position
 				posititon = "right", -- one of {`top`, `bottom`, `left`, `right`, `center`, `auto`}
