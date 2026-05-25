@@ -9,7 +9,6 @@ return {
 			},
 
 			formatters_by_ft = {
-				go = { "gofmt" },
 				python = { "black" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
